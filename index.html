@@ -8,10 +8,10 @@
   <style>
     body {
       background-color: #000000;
-      /* background-image: url('media/stars-bg.gif'); */
       color: #ff78c8;
       font-family: "Courier New", Courier, monospace;
-      cursor: url('media/cursor.png'), auto;
+      /* Integrated Peetledoodle Cursor */
+      cursor: url('https://peetledoodle.net/assets/cursor.png'), auto;
       margin: 0;
       padding: 0;
     }
@@ -22,10 +22,9 @@
     a:hover {
       color: #000000;
       background-color: #ff78c8;
-      cursor: url('media/cursor.png'), pointer;
+      cursor: url('https://peetledoodle.net/assets/cursor.png'), pointer;
     }
     
-    /* retro marquee */
     marquee {
       background-color: #ff78c8;
       color: #000000;
@@ -38,7 +37,6 @@
       letter-spacing: 1px;
     }
 
-    /* core layout boxes */
     .retro-container {
       width: 800px;
       margin: 20px auto;
@@ -61,9 +59,10 @@
       text-transform: uppercase;
       font-size: 14px;
       border-bottom: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
     }
 
-    /* compact tables */
     .layout-table {
       width: 100%;
       border-collapse: collapse;
@@ -73,7 +72,6 @@
       padding: 10px;
     }
 
-    /* compact buttons */
     .btn-mini {
       border-top: 1px solid #ffffff;
       border-left: 1px solid #ffffff;
@@ -96,18 +94,6 @@
       border-bottom: 1px solid #ffffff;
       border-right: 1px solid #ffffff;
       background: #ff4db8;
-    }
-
-    /* CSS online indicator instead of an image */
-    .status-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background-color: #39ff14;
-      border-radius: 50%;
-      margin-right: 4px;
-      box-shadow: 0 0 5px #39ff14;
-      vertical-align: middle;
     }
 
     .ticker-wrap {
@@ -142,7 +128,7 @@
       font-family: Arial, sans-serif;
       font-size: 12px;
       font-weight: bold;
-      cursor: url('media/cursor.png'), pointer;
+      cursor: url('https://peetledoodle.net/assets/cursor.png'), pointer;
       text-transform: uppercase;
     }
     .lore-tab.active {
@@ -173,14 +159,18 @@
     <br>
     <h1><font color="#ffffff">bella cactus</font></h1>
     <p><i>system overview / logs / tools</i></p>
+    
+    <img src="MKULTRA _ Brooklyn NYC_files/prismline_asQd.gif" alt="divider" width="800" style="max-width: 100%; height: auto; margin-top: 10px;">
     <br>
   </center>
 
   <div class="retro-container">
 
-    <!-- NEW RELEASE (Full Width) -->
     <div class="retro-box" style="text-align: center; border-color: #ffffff; box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.3);">
-      <div class="box-header" style="background-color: #ffffff; color: #000000;">// LATEST AUDIO LOG</div>
+      <div class="box-header" style="background-color: #ffffff; color: #000000;">
+        <img src="MKULTRA _ Brooklyn NYC_files/mascot_asQd.png" alt="mascot" width="16" height="16" style="margin-right: 8px;">
+        // LATEST AUDIO LOG
+      </div>
       
       <img src="RUSSIAN ROULETTE.jpg" width="180" height="180" alt="Russian Roulette Cover" border="2" style="border-color: #ff78c8; margin-bottom: 10px;" onerror="this.src='https://placehold.co/180x180/ff78c8/000000?text=RUSSIAN+ROULETTE'" />
       
@@ -198,9 +188,11 @@
       <tr>
         <td width="60%" style="padding-left: 0;">
           
-          <!-- OVERVIEW / ABOUT -->
           <div class="retro-box">
-            <div class="box-header">// SYSTEM_INFO</div>
+            <div class="box-header">
+              <img src="MKULTRA _ Brooklyn NYC_files/mascot_asQd.png" alt="mascot" width="16" height="16" style="margin-right: 8px;">
+              // SYSTEM_INFO
+            </div>
             
             <div class="lore-tabs">
               <button class="lore-tab active" onclick="showLoreTab('sys', this)">SYSTEM</button>
@@ -211,4 +203,98 @@
               <table width="100%">
                 <tr>
                   <td width="120" valign="top">
-                    <img src="pfp.jpg" width="100" border="1" alt="pfp" onerror="this.src='https://placehold.co/100x100/333/ff78c8?text=P
+                    <img src="MKULTRA _ Brooklyn NYC_files/network_asQd.gif" width="100" border="1" alt="pfp" style="border-color: #ff78c8;" onerror="this.src='https://placehold.co/100x100/333/ff78c8?text=PFP'" />
+                    <div style="margin-top: 8px; font-size: 11px; color: #39ff14; font-family: Arial, sans-serif; font-weight: bold;">
+                      <img src="MKULTRA _ Brooklyn NYC_files/www_world2_asQd.gif" width="14" height="14" style="vertical-align: middle; margin-right: 3px;" alt="online"> ONLINE NOW
+                    </div>
+                  </td>
+                  <td valign="top">
+                    <p style="margin-top: 0;"><strong>USER:</strong> bella cactus<br>
+                    <strong>CLASS:</strong> Reverse Engineer / Musician<br>
+                    <strong>LOCATION:</strong> Sector 47</p>
+                    <p style="font-size: 12px;">Operating out of the void. Exploring the intersection of hardcore noise and terminal interfaces.</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div id="lore-lore" class="lore-panel">
+              <p style="margin-top: 0;"><i>"The line between the machine and the flesh is getting blurry."</i></p>
+              <p style="font-size: 12px;">Started as a midnight coding experiment. Evolved into a full-scale sonic weapon. The Russian Roulette EP is just the first phase of the deployment.</p>
+            </div>
+          </div>
+        </td>
+
+        <td width="40%" style="padding-right: 0;">
+          <div class="retro-box">
+            <div class="box-header">// TOOLS</div>
+            <a href="#" class="btn-mini">Decrypt_Log</a>
+            <a href="#" class="btn-mini">Ping_Nodes</a>
+            <a href="#" class="btn-mini">View_Source</a>
+          </div>
+
+          <div class="retro-box">
+            <div class="box-header">// AFFILIATES</div>
+            <div style="text-align: center; margin-top: 10px;">
+              <!-- Integrated Peetledoodle Button Assets -->
+              <a href="https://peetledoodle.net/" target="_blank">
+                <img src="Peetledoodle_files/buttonsize_r96T.gif" alt="Peetledoodle.net" style="margin: 4px; border: 1px solid #ff78c8;">
+              </a>
+              <br>
+              <a href="https://peetledoodle.net/episodes" target="_blank">
+                <img src="Peetledoodle_files/episodesbutton_r96T.gif" alt="Episodes" width="120" style="margin: 4px; border: 1px solid #ff78c8;">
+              </a>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+  <script>
+    // Tab functionality
+    function showLoreTab(id, btn) {
+      var panels = document.querySelectorAll('.lore-panel');
+      for (var i = 0; i < panels.length; i++) panels[i].style.display = 'none';
+      
+      var tabs = document.querySelectorAll('.lore-tab');
+      for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
+      
+      var panel = document.getElementById('lore-' + id);
+      if (panel) panel.style.display = 'block';
+      btn.classList.add('active');
+    }
+
+    // Ticker Animation Engine (Adapted from MKULTRA)
+    var tickerState = {};
+    function startTicker(el, pxPerSec) {
+      var id = el.id || ('t' + Math.random().toString(36).substr(2, 9));
+      el.id = id;
+      var wrap = el.parentElement;
+      var wrapW = wrap.clientWidth;
+      var pos = wrapW;
+      el.style.transform = 'translateX(' + pos + 'px)';
+      var last = null;
+      
+      function step(ts) {
+        if (last === null) last = ts;
+        var dt = (ts - last) / 1000;
+        last = ts;
+        pos -= pxPerSec * dt;
+        var elW = el.scrollWidth;
+        if (pos < -elW) pos = wrapW;
+        el.style.transform = 'translateX(' + pos + 'px)';
+        tickerState[id] = requestAnimationFrame(step);
+      }
+      tickerState[id] = requestAnimationFrame(step);
+    }
+
+    // Start ticker on load
+    window.addEventListener('DOMContentLoaded', function() {
+      var sysEl = document.getElementById('sys-ticker');
+      if (sysEl) startTicker(sysEl, 60);
+    });
+  </script>
+</body>
+</html>
