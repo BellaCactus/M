@@ -1,505 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  <title>bella cactus</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>bella cactus // NYC</title>
   <link rel="icon" type="image/png" href="media/favicon.png" />
-
+  
   <style>
-    /* CORE MKULTRA STYLE */
     body {
-      /* classic 90s textured grey background */
-      background: repeating-linear-gradient(0deg, #d4d4d4, #d4d4d4 1px, #c0c0c0 1px, #c0c0c0 2px);
-      color: #000;
-      font-family: "Times New Roman", Times, serif;
+      background-color: #000000;
+      /* background-image: url('media/stars-bg.gif'); */
+      color: #ff78c8;
+      font-family: "Courier New", Courier, monospace;
+      cursor: url('media/cursor.png'), auto;
       margin: 0;
       padding: 0;
-      -webkit-font-smoothing: antialiased;
     }
-
     a {
-      color: #000;
-      text-decoration: none;
+      color: #ffb3e6;
+      text-decoration: underline;
     }
-
-    center {
-      margin: 0 auto;
+    a:hover {
+      color: #000000;
+      background-color: #ff78c8;
+      cursor: url('media/cursor.png'), pointer;
     }
-
-    /* TOPBAR */
-    #topbar {
-      background: #111;
-      padding: 12px 20px;
-      border-bottom: 2px solid #000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    #topbar-title {
-      font-family: Arial, sans-serif;
-      color: #fff;
-      font-weight: 900;
-      letter-spacing: 2px;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-    }
-
-    #menu-toggle {
-      background: #eee;
-      border: 1px solid #fff;
-      color: #000;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      font-size: 0.8rem;
-      padding: 4px 10px;
-      cursor: pointer;
-      letter-spacing: 1px;
-    }
-
-    #menu-toggle:hover {
-      background: #39ff14;
-    }
-
-    /* SECTION LAYOUTS */
-    .section {
-      padding: 40px 15px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    /* ALBUM / CARD BOXES */
-    .release-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
-
-    .album-box {
-      background: #fff;
-      border: 2px solid #333;
-      box-shadow: 8px 8px 0px rgba(0,0,0,0.7);
-      padding: 24px;
-      width: 100%;
-      max-width: 420px;
-      text-align: center;
-      position: relative;
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 15px;
-      margin-bottom: 20px;
-    }
-
-    .card-header h2 {
-      margin: 0;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
-      color: #00aa00; /* MKULTRA green */
-      font-family: Georgia, serif;
-      font-weight: bold;
-    }
-
-    .album-cover {
-      border: 2px solid #000;
-      margin-bottom: 15px;
-      max-width: 100%;
-      height: auto;
-      box-shadow: 4px 4px 0px #888;
-    }
-
-    .album-title {
-      margin: 10px 0 5px 0;
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #00aa00;
-    }
-
-    .album-sub {
-      color: #444;
-      font-family: Arial, sans-serif;
-      font-size: 0.85rem;
-      margin-bottom: 20px;
-    }
-
-    .big-btn {
-      display: inline-block;
-      border: 2px solid #000;
-      padding: 12px 20px;
-      font-family: Arial, sans-serif;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      background: #000;
-      color: #fff;
-      font-size: 0.85rem;
-      width: 80%;
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: all 0.1s;
-    }
-
-    .big-btn:hover {
-      border-color: #39ff14;
-      color: #39ff14;
-    }
-
-    .video-label {
-      background: #39ff14;
-      color: #000;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      display: inline-block;
-      margin-bottom: 15px;
-    }
-
-    .new-badge {
-      background: #39ff14;
-      color: #000;
-      font-family: Arial, sans-serif;
-      font-weight: 900;
-      padding: 5px 10px;
-      border: 1px solid #000;
-      display: inline-block;
-      margin-top: 10px;
-      font-size: 0.8rem;
-    }
-
-    /* DIRECTORY LINKS */
-    .dir-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .dir-link {
-      display: block;
-      background: #f4f4f4;
-      border: 1px solid #ccc;
-      padding: 10px;
-      font-family: Arial, sans-serif;
-      font-size: 0.8rem;
-      font-weight: bold;
-      color: #000;
-    }
-
-    .dir-link:hover {
-      background: #00aa00;
-      color: #fff;
-      border-color: #000;
-    }
-
-    /* TICKERS */
-    .ticker-wrap {
-      width: 100%;
-      overflow: hidden;
-      background: #111;
-      border-top: 3px solid #000;
-      border-bottom: 3px solid #000;
-      padding: 6px 0;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-    }
-
-    .ticker-label {
-      background: #39ff14;
-      color: #000;
-      font-family: Arial, sans-serif;
-      font-weight: 900;
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      margin-left: 10px;
-      border: 1px solid #fff;
-      z-index: 10;
-    }
-
-    .ticker {
-      display: inline-block;
-      white-space: nowrap;
-      padding-left: 100%;
-      animation: ticker-scroll 25s linear infinite;
-      font-family: "Courier New", monospace;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-      color: #fff;
-    }
-
-    .ticker-promo { color: #ff3333; }
     
-    .mta-status-ok {
-      color: #39ff14;
-      text-shadow: 0 0 6px #39ff14, 0 0 14px #39ff14;
-      font-size: 0.7rem;
+    /* retro marquee */
+    marquee {
+      background-color: #ff78c8;
+      color: #000000;
       font-weight: bold;
+      font-size: 14px;
+      padding: 4px;
+      border-top: 2px solid #ffffff;
+      border-bottom: 2px solid #ffffff;
       font-family: Arial, sans-serif;
-      letter-spacing: 0.5px;
-      margin-left: 4px;
+      letter-spacing: 1px;
     }
 
-    @keyframes ticker-scroll {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-100%, 0, 0); }
-    }
-
-    /* PROJECTS / BOTTOM SECTION */
-    .section-header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .section-header h2 {
-      color: #00aa00;
-      font-family: Georgia, serif;
-      letter-spacing: 2px;
-      font-size: 1.5rem;
-    }
-
-    .project-card {
-      background: #fff;
-      border: 2px solid #333;
-      padding: 15px;
-      margin: 0 auto 15px;
-      max-width: 600px;
-      display: flex;
-      align-items: center;
+    /* core layout boxes */
+    .retro-container {
+      width: 800px;
+      margin: 20px auto;
       text-align: left;
-      font-family: Arial, sans-serif;
     }
-
-    .project-tag {
+    .retro-box {
+      border: 3px double #ff78c8;
+      background-color: #0a0a0a;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 4px 4px 0px rgba(255, 120, 200, 0.3);
+    }
+    .box-header {
+      background-color: #ff78c8;
+      color: #000000;
       font-weight: bold;
-      font-size: 1.2rem;
-      width: 120px;
-      color: #000;
-    }
-
-    .project-details {
-      flex: 1;
-      padding: 0 15px;
-      border-left: 1px solid #ccc;
-    }
-
-    .project-name { font-weight: bold; color: #00aa00; font-size: 1rem; margin-bottom: 4px; }
-    .project-desc { font-size: 0.85rem; color: #555; }
-
-    .project-btn {
-      background: #000;
-      color: #fff;
-      padding: 8px 15px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .project-btn:hover {
-      border: 1px solid #39ff14;
-      color: #39ff14;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #111;
-      border-top: 4px solid #000;
-      padding: 30px 20px;
-      text-align: center;
-      color: #555;
+      padding: 4px 8px;
+      margin: -15px -15px 15px -15px;
       font-family: Arial, sans-serif;
-      font-size: 0.75rem;
-      margin-top: 40px;
+      text-transform: uppercase;
+      font-size: 14px;
+      border-bottom: 2px solid #ffffff;
+    }
+
+    /* compact tables */
+    .layout-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .layout-table td {
+      vertical-align: top;
+      padding: 10px;
+    }
+
+    /* compact buttons */
+    .btn-mini {
+      border-top: 1px solid #ffffff;
+      border-left: 1px solid #ffffff;
+      border-bottom: 1px solid #880055;
+      border-right: 1px solid #880055;
+      background: #ff78c8;
+      color: #000000 !important;
+      text-decoration: none !important;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 4px 8px;
+      margin: 2px;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+    .btn-mini:active {
+      border-top: 1px solid #880055;
+      border-left: 1px solid #880055;
+      border-bottom: 1px solid #ffffff;
+      border-right: 1px solid #ffffff;
+      background: #ff4db8;
+    }
+
+    /* CSS online indicator instead of an image */
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #39ff14;
+      border-radius: 50%;
+      margin-right: 4px;
+      box-shadow: 0 0 5px #39ff14;
+      vertical-align: middle;
     }
   </style>
 </head>
 <body>
 
-<div id="topbar">
-  <span id="topbar-title">BELLA CACTUS</span>
-  <button id="menu-toggle" aria-label="Menu">☰ MENU</button>
-</div>
+  <marquee scrollamount="6">
+    ★ BELLA CACTUS ★ NOISE FOR LATE NIGHTS ★ CODING ★ REVERSE ENGINEERING ★ SERVERS ★ 'RUSSIAN ROULETTE' OUT NOW ON SPOTIFY ★
+  </marquee>
 
-<!-- TOP PROMO TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker ticker-promo">
-    ★ CODING & REVERSE ENGINEERING   --   NZ   --   SERVERS & AUTOMATION   --   NEW SINGLE OUT NOW   --   ★ CODING & REVERSE ENGINEERING   --   NZ   --   SERVERS & AUTOMATION   --   NEW SINGLE OUT NOW   --  
-  </div>
-</div>
-
-<div id="music" class="section">
   <center>
-    <div class="release-row">
+    <br>
+    <h1><font color="#ffffff">bella cactus</font></h1>
+    <p><i>system overview / logs / tools</i></p>
+    <br>
+  </center>
+
+  <div class="retro-container">
+
+    <!-- NEW RELEASE (Full Width) -->
+    <div class="retro-box" style="text-align: center; border-color: #ffffff; box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.3);">
+      <div class="box-header" style="background-color: #ffffff; color: #000000;">// LATEST AUDIO LOG</div>
       
-      <!-- BOX 1: NEW RELEASE -->
-      <div class="album-box">
-        <div class="card-header">
-          <!-- using the peetledoodle runt gif as the mascot icon -->
-          <img src="https://peetledoodle.net/Peetledoodle_files/runt_r96T.gif" alt="" width="28" height="28">
-          <h2>NEW RELEASE</h2>
-          <img src="https://peetledoodle.net/Peetledoodle_files/runt_r96T.gif" alt="" width="28" height="28">
+      <img src="RUSSIAN ROULETTE.jpg" width="180" height="180" alt="Russian Roulette Cover" border="2" style="border-color: #ff78c8; margin-bottom: 10px;" onerror="this.src='https://placehold.co/180x180/ff78c8/000000?text=RUSSIAN+ROULETTE'" />
+      
+      <h2 style="margin: 5px 0;"><font color="#ffb3e6">Medical Benefits of Russian Roulette EP</font></h2>
+      <p style="margin-top: 0; font-size: 14px;">Out now on Spotify. Stream it everywhere.</p>
+      
+      <a href="https://open.spotify.com/artist/3zsQ2APM0MKkDE0OPTQi0D" target="_blank" style="text-decoration: none;">
+        <div style="border: 2px solid white; background: #ff78c8; color: black; padding: 8px 16px; display: inline-block; font-weight: bold; font-family: Arial;">
+          &gt; LISTEN ON SPOTIFY &lt;
         </div>
-        
-        <a href="https://open.spotify.com/artist/3zsQ2APM0MKkDE0OPTQi0D" target="_blank">
-          <!-- Placeholder for the actual cover art -->
-          <div style="width: 220px; height: 220px; background: #111; border: 2px solid #000; margin: 0 auto 15px; display: grid; place-items: center; color: #555; box-shadow: 4px 4px 0px #888;">
-            [ COVER ART ]
+      </a>
+    </div>
+
+    <table class="layout-table">
+      <tr>
+        <td width="60%" style="padding-left: 0;">
+          
+          <!-- OVERVIEW / ABOUT -->
+          <div class="retro-box">
+            <div class="box-header">// SYSTEM_INFO</div>
+            <table width="100%">
+              <tr>
+                <td width="120" valign="top">
+                  <img src="pfp.jpg" width="100" border="1" alt="pfp" onerror="this.src='https://placehold.co/100x100/333/ff78c8?text=PFP'">
+                </td>
+                <td valign="top">
+                  <b>ALIAS:</b> bella<br>
+                  <b>LOC:</b> nz<br>
+                  <b>STATUS:</b> <span class="status-dot"></span>online<br>
+                  <br>
+                  <i>building things that are useful, weird, or both. focused on reverse engineering, coding, and server architecture.</i>
+                </td>
+              </tr>
+            </table>
           </div>
-        </a>
-        
-        <h3 class="album-title">RUSSIAN ROULETTE</h3>
-        <p class="album-sub">Medical Benefits of Russian Roulette EP</p>
-        
-        <div class="album-links">
-          <a href="https://open.spotify.com/artist/3zsQ2APM0MKkDE0OPTQi0D" target="_blank" class="big-btn">
-            LISTEN NOW
-          </a>
-          <button class="big-btn">
-            READ LYRICS
-          </button>
-        </div>
-        
-        <p class="album-sub" style="margin-top: 10px; font-size: 0.75rem;">
-          &gt;&gt; Streaming everywhere &lt;&lt;<br>
-          <small>Click the link above to choose your platform</small>
-        </p>
-        <div class="new-badge">!! OUT NOW !!</div>
-      </div>
 
-      <!-- BOX 2: DIRECTORY (Replaces 'Latest Video' box) -->
-      <div class="album-box">
-        <div class="card-header">
-          <h2>SYS TOOLS & LINKS</h2>
-        </div>
-        <div class="video-label">NOW ACCESSING</div>
-        
-        <div class="dir-grid">
-          <a href="pages/ascii.html" class="dir-link">ASCII ZOO</a>
-          <a href="pages/tamers.html" class="dir-link">TAMERS VAULT</a>
-          <a href="pages/vault.html" class="dir-link">THE VAULT</a>
-          <a href="pages/audio-editor.html" class="dir-link">WAV EDITOR</a>
-          <a href="pages/limiter.html" class="dir-link">LIMITER</a>
-          <a href="pages/tab-crypt.html" class="dir-link">TAB CRYPT</a>
-          <a href="pages/epic-calc.html" class="dir-link">EPIC CALC</a>
-          <a href="pages/pokecap.html" class="dir-link">POKECAP DB</a>
-        </div>
-        
-        <p class="album-sub" style="margin-top: 20px; text-align: left;">
-          <strong>Status:</strong> Building<br>
-          <strong>Location:</strong> NZ<br>
-          <strong>Currently Playing:</strong> Destiny 2, Hypixel Skyblock
-        </p>
+        </td>
+        <td width="40%" style="padding-right: 0;">
 
-        <div class="album-links">
-          <a href="pages/os.html" class="big-btn">
-            OPEN WEB OS
-          </a>
-        </div>
-      </div>
+          <!-- COMPACT LINKS -->
+          <div class="retro-box">
+            <div class="box-header">// DIRECTORY</div>
+            
+            <font size="2" color="#ffffff"><b>PROJECTS</b></font><br>
+            <a href="pages/limiter.html" class="btn-mini">LIMITER</a>
+            <a href="pages/pokecap.html" class="btn-mini">POKECAP</a>
+            <a href="pages/epic-calc.html" class="btn-mini">EPIC CALC</a>
+            
+            <br><br>
+            <font size="2" color="#ffffff"><b>TOOLS</b></font><br>
+            <a href="pages/audio-editor.html" class="btn-mini">WAV EDIT</a>
+            <a href="pages/tab-crypt.html" class="btn-mini">TAB CRYPT</a>
+            <a href="pages/keyb.html" class="btn-mini">KEYB TEST</a>
+            <a href="pages/os.html" class="btn-mini">OS</a>
+            
+            <br><br>
+            <font size="2" color="#ffffff"><b>ARCHIVE</b></font><br>
+            <a href="pages/vault.html" class="btn-mini">VAULT</a>
+            <a href="pages/tamers.html" class="btn-mini">TAMERS</a>
+            <a href="pages/ascii.html" class="btn-mini">ASCII ZOO</a>
+            <a href="pages/shrines.html" class="btn-mini">SHRINES</a>
+            
+            <br><br>
+            <font size="2" color="#ffffff"><b>VIBES</b></font><br>
+            <a href="pages/idle.html" class="btn-mini">IDLE</a>
+            <a href="pages/glitch.html" class="btn-mini">GLITCH</a>
+            <a href="pages/dreams.html" class="btn-mini">DREAMS</a>
 
-    </div>
-  </center>
-</div>
+          </div>
 
-<!-- MTA STYLE SYSTEM TICKER -->
-<div class="ticker-wrap" style="padding: 0;">
-  <div class="ticker-label" style="border-color: #000;">SYSTEMS</div>
-  <div class="ticker" style="animation-duration: 35s;">
-    <span style="font-weight:900; font-family:Arial,sans-serif; letter-spacing:2px; font-size:0.7rem; color:#fff; margin-right:14px;">SERVER STATUS</span>
-    <span style="color:rgba(255,255,255,0.3); margin:0 12px;">|</span>
-    
-    <!-- Custom MTA style badges spelling B E L L A -->
-    <span style="display:inline-flex; align-items:center; margin: 0 6px;">
-      <span style="background: #ff6319; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: Arial; font-weight: bold; font-size: 12px;">B</span>
-      <span class="mta-status-ok">OK</span>
-    </span>
-    <span style="display:inline-flex; align-items:center; margin: 0 6px;">
-      <span style="background: #0039a6; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: Arial; font-weight: bold; font-size: 12px;">E</span>
-      <span class="mta-status-ok">OK</span>
-    </span>
-    <span style="display:inline-flex; align-items:center; margin: 0 6px;">
-      <span style="background: #a7a9ac; color: #000; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: Arial; font-weight: bold; font-size: 12px;">L</span>
-      <span class="mta-status-ok">OK</span>
-    </span>
-    <span style="display:inline-flex; align-items:center; margin: 0 6px;">
-      <span style="background: #a7a9ac; color: #000; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: Arial; font-weight: bold; font-size: 12px;">L</span>
-      <span class="mta-status-ok">OK</span>
-    </span>
-    <span style="display:inline-flex; align-items:center; margin: 0 6px;">
-      <span style="background: #0039a6; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: Arial; font-weight: bold; font-size: 12px;">A</span>
-      <span class="mta-status-ok">OK</span>
-    </span>
+        </td>
+      </tr>
+    </table>
 
-    <span style="color:rgba(255,255,255,0.3); margin:0 12px;">|</span>
-    <span style="font-weight:900; font-family:Arial,sans-serif; letter-spacing:2px; font-size:0.7rem; color:#fff; margin-right:14px;">INFRASTRUCTURE</span>
-    <span style="color:rgba(255,255,255,0.3); margin:0 12px;">|</span>
-
-    <span style="display:inline-flex; align-items:center; margin: 0 6px;">
-      <span style="background: #00933c; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: Arial; font-weight: bold; font-size: 12px;">1</span>
-      <span class="mta-status-ok">OK</span>
-    </span>
-    <span style="display:inline-flex; align-items:center; margin: 0 6px;">
-      <span style="background: #00933c; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: Arial; font-weight: bold; font-size: 12px;">2</span>
-      <span class="mta-status-ok">OK</span>
-    </span>
-    <span style="display:inline-flex; align-items:center; margin: 0 6px;">
-      <span style="background: #00933c; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: Arial; font-weight: bold; font-size: 12px;">3</span>
-      <span class="mta-status-ok">OK</span>
-    </span>
   </div>
-</div>
 
-<div id="shows" class="section" style="margin-top: 20px;">
   <center>
-    <div class="section-header">
-      <h2>CURRENT LOG</h2>
-    </div>
-
-    <div class="project-card">
-      <div class="project-tag">ACTIVE</div>
-      <div class="project-details">
-        <div class="project-name">Bella Limiter</div>
-        <div class="project-desc">Network-y overlay utility built for managing specific connections.</div>
-      </div>
-      <div class="show-actions">
-        <a href="https://github.com/BellaCactus/bella-limiter-" target="_blank" class="project-btn">VIEW REPO</a>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-tag">ACTIVE</div>
-      <div class="project-details">
-        <div class="project-name">Github Pages Hub</div>
-        <div class="project-desc">Managing this exact site and all the mini web-tools hosted here.</div>
-      </div>
-      <div class="show-actions">
-        <a href="https://github.com/BellaCactus/BellaCactus.github.io" target="_blank" class="project-btn">VIEW REPO</a>
-      </div>
-    </div>
+    <p><font size="1" color="#888888">© bella cactus<br>best viewed in netscape navigator at 800x600</font></p>
+    <br>
   </center>
-</div>
-
-<footer>
-  <center>
-    <div style="margin-bottom: 10px;">
-      <span style="font-weight: bold; font-family: Arial, sans-serif; letter-spacing: 1px; color: #fff;">BELLA CACTUS</span>
-      <span style="color: #444; margin: 0 10px;">|</span>
-      <span style="font-family: 'Courier New', monospace; font-size: 0.85rem; color: #888;">EST. 2026</span>
-    </div>
-    
-    <small>Best viewed in Netscape Navigator 4.0 at 800x600</small>
-  </center>
-</footer>
 
 </body>
 </html>
