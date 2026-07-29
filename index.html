@@ -8,10 +8,10 @@
   <style>
     body {
       background-color: #000000;
+      /* background-image: url('media/stars-bg.gif'); */
       color: #ff78c8;
       font-family: "Courier New", Courier, monospace;
-      /* Integrated Peetledoodle Cursor */
-      cursor: url('https://peetledoodle.net/assets/cursor.png'), auto;
+      cursor: url('media/cursor.png'), auto;
       margin: 0;
       padding: 0;
     }
@@ -22,9 +22,10 @@
     a:hover {
       color: #000000;
       background-color: #ff78c8;
-      cursor: url('https://peetledoodle.net/assets/cursor.png'), pointer;
+      cursor: url('media/cursor.png'), pointer;
     }
     
+    /* retro marquee */
     marquee {
       background-color: #ff78c8;
       color: #000000;
@@ -37,6 +38,7 @@
       letter-spacing: 1px;
     }
 
+    /* core layout boxes */
     .retro-container {
       width: 800px;
       margin: 20px auto;
@@ -59,10 +61,9 @@
       text-transform: uppercase;
       font-size: 14px;
       border-bottom: 2px solid #ffffff;
-      display: flex;
-      align-items: center;
     }
 
+    /* compact tables */
     .layout-table {
       width: 100%;
       border-collapse: collapse;
@@ -72,6 +73,7 @@
       padding: 10px;
     }
 
+    /* compact buttons */
     .btn-mini {
       border-top: 1px solid #ffffff;
       border-left: 1px solid #ffffff;
@@ -96,50 +98,16 @@
       background: #ff4db8;
     }
 
-    .ticker-wrap {
-      width: 100%;
-      overflow: hidden;
-      background-color: #ff78c8;
-      color: #000;
-      font-weight: bold;
-      font-family: "Courier New", Courier, monospace;
-      padding: 4px 0;
-      border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      margin-bottom: 10px;
-    }
-    .ticker {
+    /* CSS online indicator instead of an image */
+    .status-dot {
       display: inline-block;
-      white-space: nowrap;
-    }
-
-    .lore-tabs {
-      display: flex;
-      border-bottom: 2px solid #ff78c8;
-      margin-bottom: 15px;
-    }
-    .lore-tab {
-      background: #0a0a0a;
-      color: #ff78c8;
-      border: 1px solid #ff78c8;
-      border-bottom: none;
-      padding: 4px 10px;
-      margin-right: 5px;
-      font-family: Arial, sans-serif;
-      font-size: 12px;
-      font-weight: bold;
-      cursor: url('https://peetledoodle.net/assets/cursor.png'), pointer;
-      text-transform: uppercase;
-    }
-    .lore-tab.active {
-      background: #ff78c8;
-      color: #000000;
-    }
-    .lore-panel {
-      display: none;
-    }
-    .lore-panel.active {
-      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: #39ff14;
+      border-radius: 50%;
+      margin-right: 4px;
+      box-shadow: 0 0 5px #39ff14;
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -149,28 +117,18 @@
     ★ BELLA CACTUS ★ NOISE FOR LATE NIGHTS ★ CODING ★ REVERSE ENGINEERING ★ SERVERS ★ 'RUSSIAN ROULETTE' OUT NOW ON SPOTIFY ★
   </marquee>
 
-  <div class="ticker-wrap">
-    <div class="ticker" id="sys-ticker">
-      SYS_STATUS: OPTIMAL   --   WEATHER: OVERCAST, 73°F   --   LATENCY: 12ms   --   ACTIVE NODES: 47   --   SYS_STATUS: OPTIMAL   --   WEATHER: OVERCAST, 73°F   --   LATENCY: 12ms   --   ACTIVE NODES: 47
-    </div>
-  </div>
-
   <center>
     <br>
     <h1><font color="#ffffff">bella cactus</font></h1>
     <p><i>system overview / logs / tools</i></p>
-    
-    <img src="MKULTRA _ Brooklyn NYC_files/prismline_asQd.gif" alt="divider" width="800" style="max-width: 100%; height: auto; margin-top: 10px;">
     <br>
   </center>
 
   <div class="retro-container">
 
+    <!-- NEW RELEASE (Full Width) -->
     <div class="retro-box" style="text-align: center; border-color: #ffffff; box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.3);">
-      <div class="box-header" style="background-color: #ffffff; color: #000000;">
-        <img src="MKULTRA _ Brooklyn NYC_files/mascot_asQd.png" alt="mascot" width="16" height="16" style="margin-right: 8px;">
-        // LATEST AUDIO LOG
-      </div>
+      <div class="box-header" style="background-color: #ffffff; color: #000000;">// LATEST AUDIO LOG</div>
       
       <img src="RUSSIAN ROULETTE.jpg" width="180" height="180" alt="Russian Roulette Cover" border="2" style="border-color: #ff78c8; margin-bottom: 10px;" onerror="this.src='https://placehold.co/180x180/ff78c8/000000?text=RUSSIAN+ROULETTE'" />
       
@@ -188,113 +146,69 @@
       <tr>
         <td width="60%" style="padding-left: 0;">
           
+          <!-- OVERVIEW / ABOUT -->
           <div class="retro-box">
-            <div class="box-header">
-              <img src="MKULTRA _ Brooklyn NYC_files/mascot_asQd.png" alt="mascot" width="16" height="16" style="margin-right: 8px;">
-              // SYSTEM_INFO
-            </div>
-            
-            <div class="lore-tabs">
-              <button class="lore-tab active" onclick="showLoreTab('sys', this)">SYSTEM</button>
-              <button class="lore-tab" onclick="showLoreTab('lore', this)">LORE</button>
-            </div>
-
-            <div id="lore-sys" class="lore-panel active">
-              <table width="100%">
-                <tr>
-                  <td width="120" valign="top">
-                    <img src="MKULTRA _ Brooklyn NYC_files/network_asQd.gif" width="100" border="1" alt="pfp" style="border-color: #ff78c8;" onerror="this.src='https://placehold.co/100x100/333/ff78c8?text=PFP'" />
-                    <div style="margin-top: 8px; font-size: 11px; color: #39ff14; font-family: Arial, sans-serif; font-weight: bold;">
-                      <img src="MKULTRA _ Brooklyn NYC_files/www_world2_asQd.gif" width="14" height="14" style="vertical-align: middle; margin-right: 3px;" alt="online"> ONLINE NOW
-                    </div>
-                  </td>
-                  <td valign="top">
-                    <p style="margin-top: 0;"><strong>USER:</strong> bella cactus<br>
-                    <strong>CLASS:</strong> Reverse Engineer / Musician<br>
-                    <strong>LOCATION:</strong> Sector 47</p>
-                    <p style="font-size: 12px;">Operating out of the void. Exploring the intersection of hardcore noise and terminal interfaces.</p>
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div id="lore-lore" class="lore-panel">
-              <p style="margin-top: 0;"><i>"The line between the machine and the flesh is getting blurry."</i></p>
-              <p style="font-size: 12px;">Started as a midnight coding experiment. Evolved into a full-scale sonic weapon. The Russian Roulette EP is just the first phase of the deployment.</p>
-            </div>
+            <div class="box-header">// SYSTEM_INFO</div>
+            <table width="100%">
+              <tr>
+                <td width="120" valign="top">
+                  <img src="pfp.jpg" width="100" border="1" alt="pfp" onerror="this.src='https://placehold.co/100x100/333/ff78c8?text=PFP'">
+                </td>
+                <td valign="top">
+                  <b>ALIAS:</b> bella<br>
+                  <b>LOC:</b> nz<br>
+                  <b>STATUS:</b> <span class="status-dot"></span>online<br>
+                  <br>
+                  <i>building things that are useful, weird, or both. focused on reverse engineering, coding, and server architecture.</i>
+                </td>
+              </tr>
+            </table>
           </div>
+
         </td>
-
         <td width="40%" style="padding-right: 0;">
+
+          <!-- COMPACT LINKS -->
           <div class="retro-box">
-            <div class="box-header">// TOOLS</div>
-            <a href="#" class="btn-mini">Decrypt_Log</a>
-            <a href="#" class="btn-mini">Ping_Nodes</a>
-            <a href="#" class="btn-mini">View_Source</a>
+            <div class="box-header">// DIRECTORY</div>
+            
+            <font size="2" color="#ffffff"><b>PROJECTS</b></font><br>
+            <a href="pages/limiter.html" class="btn-mini">LIMITER</a>
+            <a href="pages/pokecap.html" class="btn-mini">POKECAP</a>
+            <a href="pages/epic-calc.html" class="btn-mini">EPIC CALC</a>
+            
+            <br><br>
+            <font size="2" color="#ffffff"><b>TOOLS</b></font><br>
+            <a href="pages/audio-editor.html" class="btn-mini">WAV EDIT</a>
+            <a href="pages/tab-crypt.html" class="btn-mini">TAB CRYPT</a>
+            <a href="pages/keyb.html" class="btn-mini">KEYB TEST</a>
+            <a href="pages/os.html" class="btn-mini">OS</a>
+            
+            <br><br>
+            <font size="2" color="#ffffff"><b>ARCHIVE</b></font><br>
+            <a href="pages/vault.html" class="btn-mini">VAULT</a>
+            <a href="pages/tamers.html" class="btn-mini">TAMERS</a>
+            <a href="pages/ascii.html" class="btn-mini">ASCII ZOO</a>
+            <a href="pages/shrines.html" class="btn-mini">SHRINES</a>
+            
+            <br><br>
+            <font size="2" color="#ffffff"><b>VIBES</b></font><br>
+            <a href="pages/idle.html" class="btn-mini">IDLE</a>
+            <a href="pages/glitch.html" class="btn-mini">GLITCH</a>
+            <a href="pages/dreams.html" class="btn-mini">DREAMS</a>
+
           </div>
 
-          <div class="retro-box">
-            <div class="box-header">// AFFILIATES</div>
-            <div style="text-align: center; margin-top: 10px;">
-              <!-- Integrated Peetledoodle Button Assets -->
-              <a href="https://peetledoodle.net/" target="_blank">
-                <img src="Peetledoodle_files/buttonsize_r96T.gif" alt="Peetledoodle.net" style="margin: 4px; border: 1px solid #ff78c8;">
-              </a>
-              <br>
-              <a href="https://peetledoodle.net/episodes" target="_blank">
-                <img src="Peetledoodle_files/episodesbutton_r96T.gif" alt="Episodes" width="120" style="margin: 4px; border: 1px solid #ff78c8;">
-              </a>
-            </div>
-          </div>
         </td>
       </tr>
     </table>
 
   </div>
 
-  <script>
-    // Tab functionality
-    function showLoreTab(id, btn) {
-      var panels = document.querySelectorAll('.lore-panel');
-      for (var i = 0; i < panels.length; i++) panels[i].style.display = 'none';
-      
-      var tabs = document.querySelectorAll('.lore-tab');
-      for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
-      
-      var panel = document.getElementById('lore-' + id);
-      if (panel) panel.style.display = 'block';
-      btn.classList.add('active');
-    }
+  <center>
+    <p><font size="1" color="#888888">© bella cactus<br>best viewed in netscape navigator at 800x600</font></p>
+    <br>
+  </center>
 
-    // Ticker Animation Engine (Adapted from MKULTRA)
-    var tickerState = {};
-    function startTicker(el, pxPerSec) {
-      var id = el.id || ('t' + Math.random().toString(36).substr(2, 9));
-      el.id = id;
-      var wrap = el.parentElement;
-      var wrapW = wrap.clientWidth;
-      var pos = wrapW;
-      el.style.transform = 'translateX(' + pos + 'px)';
-      var last = null;
-      
-      function step(ts) {
-        if (last === null) last = ts;
-        var dt = (ts - last) / 1000;
-        last = ts;
-        pos -= pxPerSec * dt;
-        var elW = el.scrollWidth;
-        if (pos < -elW) pos = wrapW;
-        el.style.transform = 'translateX(' + pos + 'px)';
-        tickerState[id] = requestAnimationFrame(step);
-      }
-      tickerState[id] = requestAnimationFrame(step);
-    }
-
-    // Start ticker on load
-    window.addEventListener('DOMContentLoaded', function() {
-      var sysEl = document.getElementById('sys-ticker');
-      if (sysEl) startTicker(sysEl, 60);
-    });
-  </script>
 </body>
 </html>
