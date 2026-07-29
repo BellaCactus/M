@@ -1,214 +1,181 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>bella cactus</title>
-  <meta charset="UTF-8">
+<!-- ... existing code ... -->
   <link rel="icon" type="image/png" href="media/favicon.png" />
   
   <style>
     body {
       background-color: #000000;
-      /* background-image: url('media/stars-bg.gif'); */
-      color: #ff78c8;
-      font-family: "Courier New", Courier, monospace;
-      cursor: url('media/cursor.png'), auto;
-      margin: 0;
-      padding: 0;
-    }
-    a {
-      color: #ffb3e6;
-      text-decoration: underline;
-    }
-    a:hover {
-      color: #000000;
-      background-color: #ff78c8;
+<!-- ... existing code ... -->
       cursor: url('media/cursor.png'), pointer;
     }
     
-    /* retro marquee */
-    marquee {
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
       background-color: #ff78c8;
-      color: #000000;
-      font-weight: bold;
-      font-size: 14px;
-      padding: 4px;
       border-top: 2px solid #ffffff;
       border-bottom: 2px solid #ffffff;
-      font-family: Arial, sans-serif;
-      letter-spacing: 1px;
+      padding: 4px 0;
+      box-sizing: border-box;
     }
-
-    /* core layout boxes */
-    .retro-container {
-      width: 800px;
-      margin: 20px auto;
-      text-align: left;
-    }
-    .retro-box {
-      border: 3px double #ff78c8;
-      background-color: #0a0a0a;
-      padding: 15px;
-      margin-bottom: 20px;
-      box-shadow: 4px 4px 0px rgba(255, 120, 200, 0.3);
-    }
-    .box-header {
-      background-color: #ff78c8;
+    .ticker {
+      display: inline-block;
+      white-space: nowrap;
       color: #000000;
       font-weight: bold;
-      padding: 4px 8px;
-      margin: -15px -15px 15px -15px;
-      font-family: Arial, sans-serif;
-      text-transform: uppercase;
       font-size: 14px;
-      border-bottom: 2px solid #ffffff;
-    }
-
-    /* compact tables */
-    .layout-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .layout-table td {
-      vertical-align: top;
-      padding: 10px;
-    }
-
-    /* compact buttons */
-    .btn-mini {
-      border-top: 1px solid #ffffff;
-      border-left: 1px solid #ffffff;
-      border-bottom: 1px solid #880055;
-      border-right: 1px solid #880055;
-      background: #ff78c8;
-      color: #000000 !important;
-      text-decoration: none !important;
       font-family: Arial, sans-serif;
-      font-size: 10px;
-      font-weight: bold;
-      padding: 4px 8px;
-      margin: 2px;
+      letter-spacing: 1px;
+      padding-left: 100%;
+      animation: ticker-anim 20s linear infinite;
+    }
+    @keyframes ticker-anim {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-100%, 0, 0); }
+    }
+
+    .retro-container {
+<!-- ... existing code ... -->
       display: inline-block;
       text-transform: uppercase;
+    }
+    .btn-mini:hover {
+      background: #ffffff;
+      color: #000000 !important;
+      border-color: #ff78c8;
     }
     .btn-mini:active {
       border-top: 1px solid #880055;
-      border-left: 1px solid #880055;
-      border-bottom: 1px solid #ffffff;
-      border-right: 1px solid #ffffff;
-      background: #ff4db8;
-    }
-
-    /* CSS online indicator instead of an image */
-    .status-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background-color: #39ff14;
+<!-- ... existing code ... -->
       border-radius: 50%;
       margin-right: 4px;
-      box-shadow: 0 0 5px #39ff14;
       vertical-align: middle;
+    }
+    
+    .status-glow {
+      color: #39ff14;
+      text-shadow: 0 0 6px #39ff14, 0 0 14px #39ff14, 0 0 22px #39ff14;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .lore-tabs {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ff78c8;
+      padding-bottom: 5px;
+    }
+    .lore-tab {
+      background: transparent;
+      border: 1px solid #ff78c8;
+      color: #ff78c8;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 12px;
+      padding: 4px 8px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .lore-tab.active, .lore-tab:hover {
+      background: #ff78c8;
+      color: #000000;
+    }
+    .lore-panel {
+      display: none;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .lore-panel.active {
+      display: block;
+    }
+
+    /* MKULTRA style section divider */
+    .section-divider {
+      text-align: center;
+      margin: 20px 0;
     }
   </style>
 </head>
 <body>
 
-  <marquee scrollamount="6">
-    ★ BELLA CACTUS ★ NOISE FOR LATE NIGHTS ★ CODING ★ REVERSE ENGINEERING ★ SERVERS ★ 'RUSSIAN ROULETTE' OUT NOW ON SPOTIFY ★
-  </marquee>
-
-  <center>
-    <br>
-    <h1><font color="#ffffff">bella cactus</font></h1>
-    <p><i>system overview / logs / tools</i></p>
-    <br>
-  </center>
-
-  <div class="retro-container">
-
-    <!-- NEW RELEASE (Full Width) -->
-    <div class="retro-box" style="text-align: center; border-color: #ffffff; box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.3);">
-      <div class="box-header" style="background-color: #ffffff; color: #000000;">// LATEST AUDIO LOG</div>
-      
-      <img src="RUSSIAN ROULETTE.jpg" width="180" height="180" alt="Russian Roulette Cover" border="2" style="border-color: #ff78c8; margin-bottom: 10px;" onerror="this.src='https://placehold.co/180x180/ff78c8/000000?text=RUSSIAN+ROULETTE'" />
-      
-      <h2 style="margin: 5px 0;"><font color="#ffb3e6">Medical Benefits of Russian Roulette EP</font></h2>
-      <p style="margin-top: 0; font-size: 14px;">Out now on Spotify. Stream it everywhere.</p>
-      
-      <a href="https://open.spotify.com/artist/3zsQ2APM0MKkDE0OPTQi0D" target="_blank" style="text-decoration: none;">
-        <div style="border: 2px solid white; background: #ff78c8; color: black; padding: 8px 16px; display: inline-block; font-weight: bold; font-family: Arial;">
-          &gt; LISTEN ON SPOTIFY &lt;
-        </div>
-      </a>
+  <div class="ticker-wrap">
+    <div class="ticker">
+      ★ BELLA CACTUS ★ NOISE FOR LATE NIGHTS ★ CODING ★ REVERSE ENGINEERING ★ SERVERS ★ 'RUSSIAN ROULETTE' OUT NOW ON SPOTIFY ★ BELLA CACTUS ★ NOISE FOR LATE NIGHTS ★
     </div>
-
-    <table class="layout-table">
-      <tr>
-        <td width="60%" style="padding-left: 0;">
-          
-          <!-- OVERVIEW / ABOUT -->
-          <div class="retro-box">
-            <div class="box-header">// SYSTEM_INFO</div>
-            <table width="100%">
-              <tr>
-                <td width="120" valign="top">
-                  <img src="pfp.jpg" width="100" border="1" alt="pfp" onerror="this.src='https://placehold.co/100x100/333/ff78c8?text=PFP'">
-                </td>
-                <td valign="top">
-                  <b>ALIAS:</b> bella<br>
-                  <b>LOC:</b> nz<br>
-                  <b>STATUS:</b> <span class="status-dot"></span>online<br>
-                  <br>
-                  <i>building things that are useful, weird, or both. focused on reverse engineering, coding, and server architecture.</i>
-                </td>
-              </tr>
-            </table>
-          </div>
-
-        </td>
-        <td width="40%" style="padding-right: 0;">
-
-          <!-- COMPACT LINKS -->
-          <div class="retro-box">
-            <div class="box-header">// DIRECTORY</div>
-            
-            <font size="2" color="#ffffff"><b>PROJECTS</b></font><br>
-            <a href="pages/limiter.html" class="btn-mini">LIMITER</a>
-            <a href="pages/pokecap.html" class="btn-mini">POKECAP</a>
-            <a href="pages/epic-calc.html" class="btn-mini">EPIC CALC</a>
-            
-            <br><br>
-            <font size="2" color="#ffffff"><b>TOOLS</b></font><br>
-            <a href="pages/audio-editor.html" class="btn-mini">WAV EDIT</a>
-            <a href="pages/tab-crypt.html" class="btn-mini">TAB CRYPT</a>
-            <a href="pages/keyb.html" class="btn-mini">KEYB TEST</a>
-            <a href="pages/os.html" class="btn-mini">OS</a>
-            
-            <br><br>
-            <font size="2" color="#ffffff"><b>ARCHIVE</b></font><br>
-            <a href="pages/vault.html" class="btn-mini">VAULT</a>
-            <a href="pages/tamers.html" class="btn-mini">TAMERS</a>
-            <a href="pages/ascii.html" class="btn-mini">ASCII ZOO</a>
-            <a href="pages/shrines.html" class="btn-mini">SHRINES</a>
-            
-            <br><br>
-            <font size="2" color="#ffffff"><b>VIBES</b></font><br>
-            <a href="pages/idle.html" class="btn-mini">IDLE</a>
-            <a href="pages/glitch.html" class="btn-mini">GLITCH</a>
-            <a href="pages/dreams.html" class="btn-mini">DREAMS</a>
-
-          </div>
-
-        </td>
-      </tr>
-    </table>
-
   </div>
 
+  <center>
+<!-- ... existing code ... -->
+        <td width="60%" style="padding-left: 0;">
+          
+          <div class="retro-box">
+            <div class="box-header">// SYSTEM_INFO</div>
+            
+            <div class="lore-tabs">
+              <button class="lore-tab active" onclick="showTab('about', this)">ABOUT</button>
+              <button class="lore-tab" onclick="showTab('specs', this)">SPECS</button>
+              <button class="lore-tab" onclick="showTab('logs', this)">LOGS</button>
+            </div>
+
+            <!-- Tab 1: About -->
+            <div id="tab-about" class="lore-panel active">
+              <table width="100%">
+                <tr>
+                  <td width="120" valign="top">
+                    <img src="pfp.jpg" width="100" border="1" alt="pfp" onerror="this.src='https://placehold.co/100x100/333/ff78c8?text=PFP'">
+                  </td>
+                  <td valign="top">
+                    <b>ALIAS:</b> bella<br>
+                    <b>LOC:</b> nz<br>
+                    <b>STATUS:</b> <span class="status-dot" style="box-shadow: 0 0 8px #39ff14;"></span><span class="status-glow">ONLINE</span><br>
+                    <br>
+                    <i>building things that are useful, weird, or both. focused on reverse engineering, coding, and server architecture.</i>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Tab 2: Specs -->
+            <div id="tab-specs" class="lore-panel">
+              <p><b>MAIN RIG:</b> Custom Built Rackmount<br>
+              <b>OS:</b> Arch Linux / Win 11 Dual Boot<br>
+              <b>DAW:</b> Ableton Live 11<br>
+              <b>LANGUAGES:</b> C, Python, x86 ASM, JS</p>
+              <p><i>Currently digging through legacy binaries and synthesizing heavy basslines.</i></p>
+            </div>
+
+            <!-- Tab 3: Logs -->
+            <div id="tab-logs" class="lore-panel">
+              <p>
+                <b>[2026.07.29]</b> Pushed new reverse-engineered tool to the vault.<br>
+                <b>[2026.07.15]</b> EP 'Russian Roulette' released on all major platforms.<br>
+                <b>[2026.06.02]</b> Server migration complete. Zero downtime.
+              </p>
+            </div>
+
+          </div>
+
+        </td>
+<!-- ... existing code ... -->
   <center>
     <p><font size="1" color="#888888">© bella cactus<br>best viewed in netscape navigator at 800x600</font></p>
     <br>
   </center>
+
+  <script>
+    function showTab(id, btn) {
+      // Hide all panels
+      var panels = document.querySelectorAll('.lore-panel');
+      for (var i = 0; i < panels.length; i++) panels[i].classList.remove('active');
+      
+      // Deactivate all tabs
+      var tabs = document.querySelectorAll('.lore-tab');
+      for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove('active');
+      
+      // Show selected panel and activate button
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
