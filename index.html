@@ -1,1 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>bella cactus // chaotic era</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="media/favicon.png" />
 
+  <style>
+    /* core pink theme from your new site[cite: 3] */
+    :root{
+      --bg:#070707;
+      --bg2:#0b0b0b;
+      --panel: rgba(255,255,255,0.055);
+      --panel2: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.10);
+      --text:#f7f7f7;
+      --muted:#b9b9c2;
+      --pink:#ff78c8;
+      --pink2:#ffb3e6;
+      --pink3:#ff4db8;
+      --shadow: 0 20px 70px rgba(0,0,0,0.55);
+      --radius:16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:
+        radial-gradient(800px 500px at 15% 10%, rgba(255,120,200,0.14), transparent 55%),
+        radial-gradient(900px 600px at 90% 30%, rgba(255,179,230,0.10), transparent 55%),
+        radial-gradient(1000px 700px at 40% 95%, rgba(255,77,184,0.08), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+      font-family: var(--sans);
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+
+    a{color:var(--pink); text-decoration:none;}
+    a:hover{text-decoration:underline;}
+
+    /* shimmer text[cite: 3] */
+    .pulseText{
+      background: linear-gradient(90deg, #ffffff, var(--pink), #ffffff, var(--pink2), #ffffff);
+      background-size: 260% 100%;
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      animation: shimmer 4.8s ease-in-out infinite;
+    }
+    @keyframes shimmer{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    /* retro scrolling ticker from mkultra[cite: 1] */
+    .ticker-wrap {
+      width: 100%;
+      background: rgba(255,120,200,0.1);
+      border-top: 1px solid var(--pink);
+      border-bottom: 1px solid var(--pink);
+      padding: 4px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--pink2);
+      margin-bottom: 20px;
+    }
+    .ticker {
+      display: inline-block;
+      animation: ticker-scroll 25s linear infinite;
+    }
+    @keyframes ticker-scroll {
+      0% { transform: translateX(100vw); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      padding:10px 16px 110px;
+      position:relative;
+      z-index:2;
+    }
+
+    /* panels[cite: 3] */
+    .panel{
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      margin-bottom: 14px;
+    }
+    .panelInner{ padding:16px 16px; }
+    .panelTitle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:14px 16px;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.4);
+    }
+    .panelTitle h2{
+      margin:0;
+      font-size:1.05rem;
+      color:var(--pink2);
+      letter-spacing:0.3px;
+      font-family: var(--mono);
+      text-transform: uppercase;
+    }
+
+    /* grids */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 860px){
+      .grid-2{grid-template-columns:1fr;}
+    }
+
+    /* buttons[cite: 3] */
+    .btnRow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .btn{
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      color:var(--text);
+      transition: transform 0.08s ease, background 0.2s ease, border 0.2s ease;
+      text-decoration:none;
+      font-size: 0.9rem;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,120,200,0.35);
+      background: rgba(255,120,200,0.10);
+    }
+    .btn .k{ font-family: var(--mono); font-size:0.8rem; color:var(--pink2); }
+
+    /* terminal[cite: 3] */
+    .terminal{
+      background: radial-gradient(900px 300px at 20% 0%, rgba(255,120,200,0.14), transparent 55%), rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      font-family: var(--mono);
+      padding:14px 16px;
+      min-height:190px;
+    }
+    .termLine{ display:flex; gap:8px; margin:6px 0; align-items:flex-start; }
+    .prompt{color:var(--pink2);}
+    .cmd{color:var(--text);}
+    
+    /* myspace style tags[cite: 1, 3] */
+    .tag{
+      display:inline-block;
+      font-size:0.72rem;
+      padding:2px 8px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.05);
+      color:var(--pink2);
+      margin: 4px 2px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- chaotic retro marquee[cite: 1] -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      ★ BELLA CACTUS   --   NOISE FOR LATE NIGHTS   --   CODING & REVERSE ENGINEERING   --   NEW MUSIC OUT NOW ON SPOTIFY   --   ★ BELLA CACTUS   --   NOISE FOR LATE NIGHTS   --  
+    </div>
+  </div>
+
+  <div class="wrap">
+    
+    <div class="grid-2">
+      <!-- myspace style lore/about box[cite: 1, 3] -->
+      <section class="panel">
+        <div class="panelTitle">
+          <h2>:: myspace_profile.exe</h2>
+        </div>
+        <div class="panelInner">
+          <h1 class="pulseText" style="margin-top:0;">bella cactus</h1>
+          <p style="font-family: var(--mono); color: var(--muted); font-size: 0.9rem;">
+            <em>"coding, reverse engineering, servers, and whatever i’m obsessed with this week"</em>
+          </p>
+          <hr style="border: 0; border-top: 1px dashed var(--border); margin: 15px 0;">
+          
+          <div style="font-family: var(--mono); font-size: 0.85rem;">
+            <div style="margin-bottom: 8px;"><strong class="pulseText">status:</strong> building</div>
+            <div style="margin-bottom: 8px;"><strong class="pulseText">location:</strong> nz</div>
+            <div style="margin-bottom: 8px;"><strong class="pulseText">games:</strong> <span class="tag">destiny 2</span> <span class="tag">geometry dash</span> <span class="tag">hypixel skyblock</span></div>
+            <div><strong class="pulseText">passions:</strong> <span class="tag">automation</span> <span class="tag">audio</span> <span class="tag">servers</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- new release box[cite: 1] styled with new aesthetic[cite: 3] -->
+      <section class="panel">
+        <div class="panelTitle">
+          <h2>:: new_release</h2>
+        </div>
+        <div class="panelInner" style="text-align: center;">
+          <!-- you can swap this image out for your actual album cover later -->
+          <div style="width: 120px; height: 120px; background: rgba(255,120,200,0.2); border: 1px solid var(--pink); border-radius: 8px; margin: 0 auto 15px; display: grid; place-items: center; font-family: var(--mono); font-size: 3rem;">
+            💿
+          </div>
+          <h3 style="margin: 0 0 5px 0;" class="pulseText">Out Now on Spotify</h3>
+          <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 15px;">my newest track is officially up. stream it everywhere.</p>
+          
+          <div class="btnRow" style="justify-content: center;">
+            <a href="https://open.spotify.com/" target="_blank" class="btn"><span class="k">▶</span> listen on spotify</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- terminal and tools[cite: 3] -->
+    <section class="panel">
+      <div class="panelTitle">
+        <h2>:: sys_tools</h2>
+      </div>
+      <div class="panelInner">
+        <div class="terminal">
+          <div class="termLine">
+            <span class="prompt">bella@cactus</span><span class="cmd">:</span><span class="cmd">~</span><span class="cmd">$</span>
+            <span class="cmd">ls pages/</span>
+          </div>
+          <div class="termLine" style="color: var(--muted);">
+            ascii  tamers  vault  audio-editor  tab-crypt  keyb  limiter  epic-calc
+          </div>
+          <div class="termLine">
+            <span class="prompt">bella@cactus</span><span class="cmd">:</span><span class="cmd">~</span><span class="cmd">$</span>
+            <span class="cmd" style="animation: blink 1s infinite;">_</span>
+          </div>
+        </div>
+
+        <div class="btnRow" style="margin-top: 20px;">
+          <a class="btn" href="pages/ascii.html"><span class="k">ascii</span> ascii zoo</a>
+          <a class="btn" href="pages/tamers.html"><span class="k">pony</span> tamers vault</a>
+          <a class="btn" href="pages/audio-editor.html"><span class="k">wav</span> audio editor</a>
+          <a class="btn" href="pages/limiter.html"><span class="k">lim</span> limiter</a>
+          <a class="btn" href="pages/os.html"><span class="k">os</span> os</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
