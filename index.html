@@ -109,6 +109,52 @@
       box-shadow: 0 0 5px #39ff14;
       vertical-align: middle;
     }
+
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background-color: #ff78c8;
+      color: #000;
+      font-weight: bold;
+      font-family: "Courier New", Courier, monospace;
+      padding: 4px 0;
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      margin-bottom: 10px;
+    }
+    .ticker {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .lore-tabs {
+      display: flex;
+      border-bottom: 2px solid #ff78c8;
+      margin-bottom: 15px;
+    }
+    .lore-tab {
+      background: #0a0a0a;
+      color: #ff78c8;
+      border: 1px solid #ff78c8;
+      border-bottom: none;
+      padding: 4px 10px;
+      margin-right: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: url('media/cursor.png'), pointer;
+      text-transform: uppercase;
+    }
+    .lore-tab.active {
+      background: #ff78c8;
+      color: #000000;
+    }
+    .lore-panel {
+      display: none;
+    }
+    .lore-panel.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -116,6 +162,12 @@
   <marquee scrollamount="6">
     ★ BELLA CACTUS ★ NOISE FOR LATE NIGHTS ★ CODING ★ REVERSE ENGINEERING ★ SERVERS ★ 'RUSSIAN ROULETTE' OUT NOW ON SPOTIFY ★
   </marquee>
+
+  <div class="ticker-wrap">
+    <div class="ticker" id="sys-ticker">
+      SYS_STATUS: OPTIMAL   --   WEATHER: OVERCAST, 73°F   --   LATENCY: 12ms   --   ACTIVE NODES: 47   --   SYS_STATUS: OPTIMAL   --   WEATHER: OVERCAST, 73°F   --   LATENCY: 12ms   --   ACTIVE NODES: 47
+    </div>
+  </div>
 
   <center>
     <br>
@@ -149,66 +201,14 @@
           <!-- OVERVIEW / ABOUT -->
           <div class="retro-box">
             <div class="box-header">// SYSTEM_INFO</div>
-            <table width="100%">
-              <tr>
-                <td width="120" valign="top">
-                  <img src="pfp.jpg" width="100" border="1" alt="pfp" onerror="this.src='https://placehold.co/100x100/333/ff78c8?text=PFP'">
-                </td>
-                <td valign="top">
-                  <b>ALIAS:</b> bella<br>
-                  <b>LOC:</b> nz<br>
-                  <b>STATUS:</b> <span class="status-dot"></span>online<br>
-                  <br>
-                  <i>building things that are useful, weird, or both. focused on reverse engineering, coding, and server architecture.</i>
-                </td>
-              </tr>
-            </table>
-          </div>
-
-        </td>
-        <td width="40%" style="padding-right: 0;">
-
-          <!-- COMPACT LINKS -->
-          <div class="retro-box">
-            <div class="box-header">// DIRECTORY</div>
             
-            <font size="2" color="#ffffff"><b>PROJECTS</b></font><br>
-            <a href="pages/limiter.html" class="btn-mini">LIMITER</a>
-            <a href="pages/pokecap.html" class="btn-mini">POKECAP</a>
-            <a href="pages/epic-calc.html" class="btn-mini">EPIC CALC</a>
-            
-            <br><br>
-            <font size="2" color="#ffffff"><b>TOOLS</b></font><br>
-            <a href="pages/audio-editor.html" class="btn-mini">WAV EDIT</a>
-            <a href="pages/tab-crypt.html" class="btn-mini">TAB CRYPT</a>
-            <a href="pages/keyb.html" class="btn-mini">KEYB TEST</a>
-            <a href="pages/os.html" class="btn-mini">OS</a>
-            
-            <br><br>
-            <font size="2" color="#ffffff"><b>ARCHIVE</b></font><br>
-            <a href="pages/vault.html" class="btn-mini">VAULT</a>
-            <a href="pages/tamers.html" class="btn-mini">TAMERS</a>
-            <a href="pages/ascii.html" class="btn-mini">ASCII ZOO</a>
-            <a href="pages/shrines.html" class="btn-mini">SHRINES</a>
-            
-            <br><br>
-            <font size="2" color="#ffffff"><b>VIBES</b></font><br>
-            <a href="pages/idle.html" class="btn-mini">IDLE</a>
-            <a href="pages/glitch.html" class="btn-mini">GLITCH</a>
-            <a href="pages/dreams.html" class="btn-mini">DREAMS</a>
+            <div class="lore-tabs">
+              <button class="lore-tab active" onclick="showLoreTab('sys', this)">SYSTEM</button>
+              <button class="lore-tab" onclick="showLoreTab('lore', this)">LORE</button>
+            </div>
 
-          </div>
-
-        </td>
-      </tr>
-    </table>
-
-  </div>
-
-  <center>
-    <p><font size="1" color="#888888">© bella cactus<br>best viewed in netscape navigator at 800x600</font></p>
-    <br>
-  </center>
-
-</body>
-</html>
+            <div id="lore-sys" class="lore-panel active">
+              <table width="100%">
+                <tr>
+                  <td width="120" valign="top">
+                    <img src="pfp.jpg" width="100" border="1" alt="pfp" onerror="this.src='https://placehold.co/100x100/333/ff78c8?text=P
